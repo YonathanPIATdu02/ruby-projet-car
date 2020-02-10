@@ -3,4 +3,5 @@ class Voiture < ApplicationRecord
     def age
         ((Date.today - date_mise_en_service)/365.25).floor
     end
+    belongs_to :personne
 end

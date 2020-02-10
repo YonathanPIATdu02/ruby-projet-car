@@ -10,6 +10,7 @@
       <th>Marque</th>
       <th>Modele</th>
       <th>Date mise en service</th>
+      <th>propriétaire</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,9 +20,10 @@
       <tr>
         <td><%= voiture.immatriculation %></td>
         <td><%= voiture.couleur %></td>
-        <td><%= voiture.marque %></td>
+        <td><%= link_to voiture.marque.try(:libelle), marque_path(voiture.marque_id) if voiture.marque %></td>
         <td><%= voiture.modele %></td>
         <td><%= voiture.date_mise_en_service %></td>
+        <td><%= link_to voiture.personne.try(:noms), personne_path(voiture.personne_id) if voiture.personne%></td>
         <td><%= link_to 'Show', voiture %></td>
         <td><%= link_to 'Edit', edit_voiture_path(voiture) %></td>
         <td><%= link_to 'Destroy', voiture, method: :delete, data: { confirm: 'Are you sure?' } %></td>

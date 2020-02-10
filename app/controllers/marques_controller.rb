@@ -10,6 +10,7 @@ class MarquesController < ApplicationController
   # GET /marques/1
   # GET /marques/1.json
   def show
+    @marque = Marque.find(params[:id])
   end
 
   # GET /marques/new
